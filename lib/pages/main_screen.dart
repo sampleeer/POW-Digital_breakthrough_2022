@@ -53,7 +53,7 @@ class MainScreen extends StatelessWidget {
               child: Text('Статистика', style: TextStyle(color: Colors.white)),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 30, 35, 15),
+              padding: EdgeInsets.fromLTRB(10, 30, 35, 15),//
               child: IconButton(
                 onPressed: () {},
                 icon: Icon(
