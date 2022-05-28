@@ -19,19 +19,59 @@ class _StatistState extends State<Statist> {
         .then((value) {
       setState(() {
         dateTime = value!;
-        ListTime.add(dateTime);
       });
     });
   }
 
   int count = 0;
 
-  List<DateTime> ListTime = [];
+  final List<String> list = ['ouuf0', 'efefe', 'eifjeif'];
+
   DateTime dateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body: Container()),);
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.fill, image: AssetImage('assets/Stata.png'))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(color: Colors.blue, child: Text('Календарь')),
+          Column(
+            children: [
+              Container(
+                color: Colors.cyan,
+                child: Row(children: [
+                  Column(children: [
+                    Column(
+                      children: [Text('Файлы'), Text('Тут лист')],
+                    )
+                  ]),
+                  Column(children: [
+                    Column(
+                      children: [Text('Дата съемки'), Text('Тут лист')],
+                    )
+                  ]),
+                  Column(children: [Column(
+                    children: [Text('Результаты'), Text('Тут лист')],
+                  )])
+                ]),
+              ),
+              Container(
+                color: Colors.indigo,
+                child: Row(children: [
+                  Column(children: []),
+                  Column(children: []),
+                  Column(children: [])
+                ]),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
 
