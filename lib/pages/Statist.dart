@@ -24,6 +24,9 @@ class _StatistState extends State<Statist> {
     });
   }
 
+  //ignore_for_file: prefer_const_constructors
+  //ignore_for_file: sort_child_properties_last
+  //ignore_for_file: prefer_const_literals_to_create_immutables
   int count = 0;
 
   List<DateTime?> _yourVariable = [DateTime.now()];
@@ -82,7 +85,17 @@ class _StatistState extends State<Statist> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(color: Colors.blue, child: Text('Календарь должен быть тут')),
+          Container(color: Colors.blue, child: Expanded(
+          child: CalendarDatePicker2WithActionButtons(
+            config: CalendarDatePicker2WithActionButtonsConfig(
+              calendarType: CalendarDatePicker2Type.range,
+              selectedDayHighlightColor: Colors.purple[800],
+            ),
+            initialValue: [],
+            onValueChanged: (values) => setState(
+                  () => _yourVariable = values,
+            ),
+          ))),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
