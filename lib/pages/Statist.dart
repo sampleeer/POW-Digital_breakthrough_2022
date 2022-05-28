@@ -19,18 +19,19 @@ class _StatistState extends State<Statist> {
         .then((value) {
       setState(() {
         dateTime = value!;
+        _yourVariable.add(dateTime);
       });
     });
   }
 
   int count = 0;
 
-  List<DateTime> ListTime = [];
+  List<DateTime?> _yourVariable = [DateTime.now()];
   DateTime dateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicWidth(
+    /*return IntrinsicWidth(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(120, 150, 0, 0),
         child: Row(
@@ -72,8 +73,8 @@ class _StatistState extends State<Statist> {
           ],
         ),
       ),
-    );
-    return MaterialApp(home: Scaffold(body: Container()),);
+    );*/
+    //return MaterialApp(home: Scaffold(body: Container()),);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
@@ -117,10 +118,11 @@ class _StatistState extends State<Statist> {
     );
   }
 }
-
+/*
 class _yourVariable {
   DateTime first = DateTime.now();
   int firstData = 0;
   int secondData = 0;
 }
 //19:39
+}*/

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:win/pages/Statist.dart';
+import 'package:path_provider/path_provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -12,12 +13,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
 
-  PageController pageController = PageController();
+  FilePickerResult? result;
 
+  PageController pageController = PageController();
+  //ignore_for_file: prefer_const_constructors
+  //ignore_for_file: sort_child_properties_last
+  //ignore_for_file: prefer_const_literals_to_create_immutables
   @override
   Widget build(BuildContext context) {
     const leftPanel = const Color(0xff28226b);
     const redIcons = const Color(0xffF52A67);
+
+
     return Scaffold(
       body: Row(
         children: [
@@ -37,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
             },
             selectedIndex: selectedIndex,
             labelType: NavigationRailLabelType.all,
-            destinations: [
+            destinations: const [
               NavigationRailDestination(
                   icon: Icon(
                     Icons.menu_outlined,
@@ -139,7 +146,7 @@ class _MainScreenState extends State<MainScreen> {
                                       fontSize: 11,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
-                                    ),
+                                    )
                                   ),
                                   Text(
                                     "загрузить полученные данные для",
@@ -172,8 +179,7 @@ class _MainScreenState extends State<MainScreen> {
                               padding: const EdgeInsets.fromLTRB(0, 20, 80, 20),
                               child: ElevatedButton(
                                   onPressed: () async {
-                                    final result =
-                                        await FilePicker.platform.pickFiles();
+                                    uploadFiles();
                                   },
                                   style: ButtonStyle(
                                       backgroundColor:
@@ -181,7 +187,8 @@ class _MainScreenState extends State<MainScreen> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(15.0),
                                     child: Text(
-                                      'Загрузить данные',
+                                      //((result?.files.first  != null) ? ((result?.files.first.name != null) ? result?.files.first.name : 'Загрузить данные') : 'Загрузить данные') ?? '',
+                                      (result?.files.first.name ?? 'Загрузить данные'),
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 15,
@@ -288,4 +295,11 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+  void uploadFiles() async {
+     result = await FilePicker.platform.pickFiles(allowMultiple: true);
+     //print('File Name: ${result?.files.first.name}');
+     print(result?.files.map((val) => val.path).toList().join(" \n "));
+     print("locdir : ${(await getApplicationDocumentsDirectory()).path}\\MDetect\\");
+  }
 }
+//its 19:45
