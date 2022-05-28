@@ -63,6 +63,9 @@ flutter:
   assets:
     - assets/morj.png
     - assets/MainScreen.png
+    - assets/info.png
+    - assets/help.png
+    - assets/Stata.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -10,14 +10,58 @@ class Statist extends StatefulWidget {
 }
 
 class _StatistState extends State<Statist> {
+  List<DateTime?> _yourVariable = [DateTime.now()];
 
   @override
   Widget build(BuildContext context) {
-    return CalendarDatePicker2(
-      config: CalendarDatePicker2Config(
-        calendarType: CalendarDatePicker2Type.range,
+    return IntrinsicWidth(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(120, 150, 0, 0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: CalendarDatePicker2WithActionButtons(
+                config: CalendarDatePicker2WithActionButtonsConfig(
+                  calendarType: CalendarDatePicker2Type.range,
+                  selectedDayHighlightColor: Colors.purple[800],
+                ),
+                initialValue: [],
+                onValueChanged: (values) => setState(
+                  () => _yourVariable = values,
+                ),
+              ),
+            ),
+            Expanded(
+                child: Column(
+              children: [
+                Container(
+                  color: Colors.cyan,
+                  child: SizedBox(
+                    width: 400,
+                    height: 100,
+                    child: Text('aboba'),
+                  ),
+                ),
+                Container(
+                  color: Colors.cyan,
+                  child: SizedBox(
+                    width: 400,
+                    height: 300,
+                    child: Text('aboba'),
+                  ),
+                )
+              ],
+            ))
+          ],
+        ),
       ),
-      initialValue: [],
     );
   }
+}
+
+class _yourVariable {
+  DateTime first = DateTime.now();
+  int firstData = 0;
+  int secondData = 0;
 }

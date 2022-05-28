@@ -22,8 +22,7 @@ class _MainScreenState extends State<MainScreen> {
       body: Row(
         children: [
           NavigationRail(
-            selectedIconTheme:
-                IconThemeData(color: redIcons, opacity: 100),
+            selectedIconTheme: IconThemeData(color: redIcons, opacity: 100),
             backgroundColor: leftPanel,
             unselectedIconTheme: IconThemeData(color: Colors.white),
             selectedLabelTextStyle: TextStyle(color: redIcons),
@@ -205,75 +204,83 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      fit: BoxFit.fill,
+                        fit: BoxFit.fill,
                         image: AssetImage('assets/MainScreen.png'))),
               ),
               Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage('assets/MainScreen.png'))),
+                        image: AssetImage('assets/Stata.png'))),
                 child: Statist(),
               ),
               Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage('assets/MainScreen.png'))),
+                        image: AssetImage('assets/help.png'))),
               ),
               Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage('assets/MainScreen.png'))),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 300, 650, 10),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            height: 60,
-                            child: TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Лицензионное соглашение',
-                                  style: TextStyle(
-                                      fontFamily: 'MyFont', color: leftPanel),
-                                )),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            height: 60,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 5, 50, 5),
-                              child: TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Версия приложения',
-                                    style: TextStyle(
-                                        fontFamily: 'MyFont', color: leftPanel),
-                                  )),
+                          image: AssetImage('assets/info.png'))),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(150.0),
+                        child: Row(
+                          children: [
+                            Column(
+                              children: [
+                                SizedBox(
+                                  height: 60,
+                                  child: TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Лицензионное соглашение',
+                                        style: TextStyle(
+                                            fontFamily: 'MyFont',
+                                            color: leftPanel),
+                                      )),
+                                ),
+                                SizedBox(
+                                  height: 60,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 5, 50, 5),
+                                    child: TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          'Версия приложения',
+                                          style: TextStyle(
+                                              fontFamily: 'MyFont',
+                                              color: leftPanel),
+                                        )),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 50),
+                                  child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  leftPanel)),
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Политика конфиденциальности',
+                                        style: TextStyle(
+                                            fontFamily: 'MyFont',
+                                            color: Colors.white),
+                                      )),
+                                )
+                              ],
                             ),
-                          ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 50),
-                          child: ElevatedButton(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(leftPanel)),
-                              onPressed: () {},
-                              child: Text(
-                                'Политика конфиденциальности',
-                                style: TextStyle(
-                                    fontFamily: 'MyFont', color: Colors.white),
-                              )),
-                        )
-                      ],
-                    ),
+                      ),
+                    ],
                   )),
             ],
           ))
