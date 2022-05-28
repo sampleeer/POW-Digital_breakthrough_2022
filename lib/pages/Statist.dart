@@ -10,7 +10,24 @@ class Statist extends StatefulWidget {
 }
 
 class _StatistState extends State<Statist> {
-  List<DateTime?> _yourVariable = [DateTime.now()];
+  void _showDate() {
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2030))
+        .then((value) {
+      setState(() {
+        dateTime = value!;
+        ListTime.add(dateTime);
+      });
+    });
+  }
+
+  int count = 0;
+
+  List<DateTime> ListTime = [];
+  DateTime dateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +74,7 @@ class _StatistState extends State<Statist> {
         ),
       ),
     );
+    return MaterialApp(home: Scaffold(body: Container()),);
   }
 }
 
