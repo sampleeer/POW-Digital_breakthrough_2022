@@ -82,35 +82,80 @@ class _StatistState extends State<Statist> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(color: Colors.blue, child: Text('Календарь')),
+          Container(color: Colors.blue, child: Text('Календарь должен быть тут')),
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                color: Colors.cyan,
-                child: Row(children: [
-                  Column(children: [
-                    Column(
-                      children: [Text('Файлы'), Text('Тут лист')],
+                decoration: BoxDecoration(
+                  color: Colors.white54,
+                    border: Border.all(
+                      color: Colors.white54,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Файлы', style: TextStyle(fontSize: 25),), Text('Тут лист')],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Дата съемки', style: TextStyle(fontSize: 25)), Text('Тут лист')],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Результаты', style: TextStyle(fontSize: 25)), Text('Тут лист')],
+                      ),
                     )
                   ]),
-                  Column(children: [
-                    Column(
-                      children: [Text('Дата съемки'), Text('Тут лист')],
-                    )
-                  ]),
-                  Column(children: [Column(
-                    children: [Text('Результаты'), Text('Тут лист')],
-                  )])
-                ]),
+                ),
               ),
               Container(
-                color: Colors.indigo,
-                child: Row(children: [
-                  Column(children: []),
-                  Column(children: []),
-                  Column(children: [])
+                decoration: BoxDecoration(
+                    color: Colors.white54,
+                    border: Border.all(
+                      color: Colors.white54,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Row(
+                    children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Название лежбища', style: TextStyle(fontSize: 25)), Text('Тут имя')]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Название файла', style: TextStyle(fontSize: 25)), Text('Тут имя')]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Дата загрузки', style: TextStyle(fontSize: 25)), Text('Тут чиселки')]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [Text('Результаты', style: TextStyle(fontSize: 25)), Text('Тут чиселки')]),
+                  )
                 ]),
               ),
+              ElevatedButton(onPressed: (){}, child: Text('Скачать данные в формате .xls', style: TextStyle(),),)
             ],
           )
         ],
