@@ -10,111 +10,190 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Color> myColors = [
-    Colors.yellowAccent,
-    Colors.purple,
-  ];
+  int selectedIndex = 0;
+
+  PageController pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     const leftPanel = const Color(0xff28226b);
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(color: leftPanel),
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-                height: 100,
-                child: InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.menu_outlined,
-                      size: 70,
-                      color: Colors.white,
-                    ))),
-            Container(
-              child: SizedBox(
-                  height: 100,
-                  child: InkWell(
-                    onTap: () async {
-                      final result = await FilePicker.platform.pickFiles();
-                    },
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.home,
-                          size: 60,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          'Главная',
-                          style: TextStyle(fontSize: 14, color: Colors.white),
-                        )
-                      ],
-                    ),
+      body: Row(
+        children: [
+          NavigationRail(
+            selectedIconTheme: IconThemeData(color: Colors.white, opacity: 100),
+            backgroundColor: leftPanel,
+            onDestinationSelected: (newIndex) {
+              setState(() {
+                selectedIndex = newIndex;
+                pageController.animateToPage(newIndex,
+                    duration: Duration(milliseconds: 250),
+                    curve: Curves.easeInOut);
+              });
+            },
+            selectedIndex: selectedIndex,
+            labelType: NavigationRailLabelType.all,
+            destinations: [
+              NavigationRailDestination(
+                  icon: Icon(
+                    Icons.menu_outlined,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    '',
                   )),
-            ),
-            SizedBox(
-                height: 100,
-                child: InkWell(
-                  focusColor: Colors.indigo.withOpacity(0.3),
-                  onTap: () {
-                    setState(() {});
-                  },
-                  child: Column(
+              NavigationRailDestination(
+                  icon: Icon(
+                    Icons.home,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    'Главная',
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  )),
+              NavigationRailDestination(
+                  icon: Icon(Icons.stacked_bar_chart,
+                      color: Colors.white, size: 40),
+                  label: Text(
+                    'Статистика',
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  )),
+              NavigationRailDestination(
+                  icon: Icon(Icons.help_outline, color: Colors.white, size: 40),
+                  label: Text(
+                    'Помощь',
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  )),
+              NavigationRailDestination(
+                  icon: Icon(
+                    Icons.info_outline,
+                    color: Colors.white,
+                    size: 40,
+                  ),
+                  label: Text(
+                    'Информация',
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ))
+            ],
+          ),
+          Expanded(
+              child: PageView(
+            controller: pageController,
+            children: [
+              Container(
+                color: Colors.blue,
+              ),
+              Container(
+                child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Icon(
-                        Icons.stacked_bar_chart,
-                        size: 60,
-                        color: Colors.white,
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Добро",
+                                  style: TextStyle(
+                                      fontSize: 45, color: Colors.white, fontFamily: 'Fonts',),
+                                ),
+                                Text(
+                                  "пожаловать!",
+                                  style: TextStyle(
+                                      fontSize: 45, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 20, 60, 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "С помощью этого приложения вы можете",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.white),
+                                  ),
+                                  Text(
+                                    "загрузить полученные данные для",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.white),
+                                  ),
+                                  Text(
+                                    "дальнейшей обработки или продолжить",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.white),
+                                  ),
+                                  Text(
+                                    "работу с ранее загруженными файлами",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 20, 60, 20),
+                              child: ElevatedButton(
+                                  onPressed: () async {
+                                    final result =
+                                        await FilePicker.platform.pickFiles();
+                                  },
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(leftPanel)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Text(
+                                      'Загрузить данные',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15),
+                                    ),
+                                  )),
+                            ),
+                          ],
+                        ),
                       ),
-                      Text(
-                        'Статистика',
-                        style: TextStyle(fontSize: 14, color: Colors.white),
-                      )
+                      Expanded(
+                          child: Image(
+                        image: AssetImage('assets/morj.png'),
+                        alignment: Alignment.bottomRight,
+                      )),
                     ],
                   ),
-                )),
-            SizedBox(
-                height: 100,
-                child: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.help_outline,
-                        size: 60,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Помощь',
-                        style: TextStyle(fontSize: 14, color: Colors.white),
-                      )
-                    ],
-                  ),
-                )),
-            SizedBox(
-                height: 100,
-                width: 100,
-                child: InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.info_outline,
-                        size: 60,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Информация',
-                        style: TextStyle(fontSize: 14, color: Colors.white),
-                      )
-                    ],
-                  ),
-                )),
-          ],
-        ),
+                ),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/MainScreen.png')
+                    )
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fitHeight,
+                    image: AssetImage('assets/MainScreen.png')
+                  )
+                ),
+              ),
+              Container(
+                child: Image(
+                  image: AssetImage('assets/MainScreen.png'),
+                ),
+              ),
+              Container(
+                color: Colors.white70,
+              ),
+            ],
+          ))
+        ],
       ),
-      backgroundColor: Colors.blue[100],
     );
   }
 }
