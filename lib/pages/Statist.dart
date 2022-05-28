@@ -40,7 +40,7 @@ class _StatistState extends State<Statist> {
                   child: SizedBox(
                     width: 400,
                     height: 100,
-                    child: Text('aboba'),
+                    child: Text(_yourVariable.map((val) => val.toString()).toList().join(" - ") ),
                   ),
                 ),
                 Container(
