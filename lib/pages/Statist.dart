@@ -19,7 +19,6 @@ class _StatistState extends State<Statist> {
         .then((value) {
       setState(() {
         dateTime = value!;
-        ListTime.add(dateTime);
       });
     });
   }
@@ -75,6 +74,47 @@ class _StatistState extends State<Statist> {
       ),
     );
     return MaterialApp(home: Scaffold(body: Container()),);
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.fill, image: AssetImage('assets/Stata.png'))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(color: Colors.blue, child: Text('Календарь')),
+          Column(
+            children: [
+              Container(
+                color: Colors.cyan,
+                child: Row(children: [
+                  Column(children: [
+                    Column(
+                      children: [Text('Файлы'), Text('Тут лист')],
+                    )
+                  ]),
+                  Column(children: [
+                    Column(
+                      children: [Text('Дата съемки'), Text('Тут лист')],
+                    )
+                  ]),
+                  Column(children: [Column(
+                    children: [Text('Результаты'), Text('Тут лист')],
+                  )])
+                ]),
+              ),
+              Container(
+                color: Colors.indigo,
+                child: Row(children: [
+                  Column(children: []),
+                  Column(children: []),
+                  Column(children: [])
+                ]),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -83,3 +123,4 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
+//19:39
