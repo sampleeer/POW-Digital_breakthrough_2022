@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'dart:math';
+import 'package:win/pages/Statist.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -17,12 +17,17 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     const leftPanel = const Color(0xff28226b);
+    const redIcons = const Color(0xffF52A67);
     return Scaffold(
       body: Row(
         children: [
           NavigationRail(
-            selectedIconTheme: IconThemeData(color: Colors.white, opacity: 100),
+            selectedIconTheme:
+                IconThemeData(color: redIcons, opacity: 100),
             backgroundColor: leftPanel,
+            unselectedIconTheme: IconThemeData(color: Colors.white),
+            selectedLabelTextStyle: TextStyle(color: redIcons),
+            unselectedLabelTextStyle: TextStyle(color: Colors.white),
             onDestinationSelected: (newIndex) {
               setState(() {
                 selectedIndex = newIndex;
@@ -38,7 +43,6 @@ class _MainScreenState extends State<MainScreen> {
                   icon: Icon(
                     Icons.menu_outlined,
                     size: 40,
-                    color: Colors.white,
                   ),
                   label: Text(
                     '',
@@ -47,34 +51,43 @@ class _MainScreenState extends State<MainScreen> {
                   icon: Icon(
                     Icons.home,
                     size: 40,
-                    color: Colors.white,
                   ),
                   label: Text(
                     'Главная',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'MyFont',
+                    ),
                   )),
               NavigationRailDestination(
-                  icon: Icon(Icons.stacked_bar_chart,
-                      color: Colors.white, size: 40),
+                  icon: Icon(Icons.stacked_bar_chart, size: 40),
                   label: Text(
                     'Статистика',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'MyFont',
+                    ),
                   )),
               NavigationRailDestination(
-                  icon: Icon(Icons.help_outline, color: Colors.white, size: 40),
+                  icon: Icon(Icons.help_outline, size: 40),
                   label: Text(
                     'Помощь',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'MyFont',
+                    ),
                   )),
               NavigationRailDestination(
                   icon: Icon(
                     Icons.info_outline,
-                    color: Colors.white,
                     size: 40,
                   ),
                   label: Text(
                     'Информация',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'MyFont',
+                    ),
                   ))
             ],
           ),
@@ -101,45 +114,63 @@ class _MainScreenState extends State<MainScreen> {
                                 Text(
                                   "Добро",
                                   style: TextStyle(
-                                      fontSize: 45, color: Colors.white, fontFamily: 'Fonts',),
+                                      fontSize: 45,
+                                      color: Colors.white,
+                                      fontFamily: 'MyFont',
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   "пожаловать!",
                                   style: TextStyle(
-                                      fontSize: 45, color: Colors.white),
+                                      fontSize: 45,
+                                      color: Colors.white,
+                                      fontFamily: 'MyFont',
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 20, 60, 20),
+                              padding: const EdgeInsets.fromLTRB(0, 20, 55, 20),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     "С помощью этого приложения вы можете",
                                     style: TextStyle(
-                                        fontSize: 10, color: Colors.white),
+                                      fontSize: 11,
+                                      color: Colors.white,
+                                      fontFamily: 'MyFont',
+                                    ),
                                   ),
                                   Text(
                                     "загрузить полученные данные для",
                                     style: TextStyle(
-                                        fontSize: 10, color: Colors.white),
+                                      fontSize: 11,
+                                      color: Colors.white,
+                                      fontFamily: 'MyFont',
+                                    ),
                                   ),
                                   Text(
                                     "дальнейшей обработки или продолжить",
                                     style: TextStyle(
-                                        fontSize: 10, color: Colors.white),
+                                      fontSize: 11,
+                                      color: Colors.white,
+                                      fontFamily: 'MyFont',
+                                    ),
                                   ),
                                   Text(
                                     "работу с ранее загруженными файлами",
                                     style: TextStyle(
-                                        fontSize: 10, color: Colors.white),
+                                      fontSize: 11,
+                                      color: Colors.white,
+                                      fontFamily: 'MyFont',
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 20, 60, 20),
+                              padding: const EdgeInsets.fromLTRB(0, 20, 80, 20),
                               child: ElevatedButton(
                                   onPressed: () async {
                                     final result =
@@ -153,7 +184,11 @@ class _MainScreenState extends State<MainScreen> {
                                     child: Text(
                                       'Загрузить данные',
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 15),
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w200,
+                                        fontFamily: 'MyFont',
+                                      ),
                                     ),
                                   )),
                             ),
@@ -170,26 +205,76 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/MainScreen.png')
-                    )
-                ),
+                      fit: BoxFit.fill,
+                        image: AssetImage('assets/MainScreen.png'))),
               ),
               Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fitHeight,
-                    image: AssetImage('assets/MainScreen.png')
-                  )
-                ),
+                    image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/MainScreen.png'))),
+                child: Statist(),
               ),
               Container(
-                child: Image(
-                  image: AssetImage('assets/MainScreen.png'),
-                ),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/MainScreen.png'))),
               ),
               Container(
-                color: Colors.white70,
-              ),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage('assets/MainScreen.png'))),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 300, 650, 10),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            height: 60,
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Лицензионное соглашение',
+                                  style: TextStyle(
+                                      fontFamily: 'MyFont', color: leftPanel),
+                                )),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            height: 60,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 5, 50, 5),
+                              child: TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Версия приложения',
+                                    style: TextStyle(
+                                        fontFamily: 'MyFont', color: leftPanel),
+                                  )),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 50),
+                          child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(leftPanel)),
+                              onPressed: () {},
+                              child: Text(
+                                'Политика конфиденциальности',
+                                style: TextStyle(
+                                    fontFamily: 'MyFont', color: Colors.white),
+                              )),
+                        )
+                      ],
+                    ),
+                  )),
             ],
           ))
         ],
