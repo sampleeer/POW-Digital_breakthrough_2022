@@ -81,17 +81,17 @@ class _StatistState extends State<Statist> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.fill, image: AssetImage('assets/Stata.png'))),
+              fit: BoxFit.fill, image: AssetImage('assets/Stata2.png'))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(color: Colors.blue, child: SizedBox(
           width: 400,
-          height: 300,
+          height: 400,
           child: CalendarDatePicker2WithActionButtons(
             config: CalendarDatePicker2WithActionButtonsConfig(
               calendarType: CalendarDatePicker2Type.range,
-              selectedDayHighlightColor: Colors.purple[800],
+              selectedDayHighlightColor: Colors.indigo[900],
             ),
             initialValue: [DateTime.now()],
             onValueChanged: (values) => setState(
@@ -184,5 +184,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//20:44
+//22:24
 }*/
