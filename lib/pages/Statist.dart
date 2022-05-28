@@ -85,7 +85,9 @@ class _StatistState extends State<Statist> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(color: Colors.blue, child: Expanded(
+          Container(color: Colors.blue, child: SizedBox(
+          width: 400,
+          height: 300,
           child: CalendarDatePicker2WithActionButtons(
             config: CalendarDatePicker2WithActionButtonsConfig(
               calendarType: CalendarDatePicker2Type.range,
