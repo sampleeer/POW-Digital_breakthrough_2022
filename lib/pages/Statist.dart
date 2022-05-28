@@ -100,133 +100,156 @@ class _StatistState extends State<Statist> {
                       () => _yourVariable = values,
                     ),
                   ))),
-          Padding(
-            padding: const EdgeInsets.only(top: 80),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white54,
-                      border: Border.all(
-                        color: Colors.white54,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(75, 10, 75, 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 80),
+              child: SizedBox(
+                height: 500,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white54,
+                          border: Border.all(
+                            color: Colors.white54,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      // child:
+                    ),
+                    Expanded(
+                      child: ListView(
+                        // shrinkWrap: true,
                           children: [
-                            Text(
-                              'Файлы',
-                              style:
-                                  TextStyle(fontSize: 25, fontFamily: 'MyFont'),
+                            DataTable(columns: [
+                              DataColumn(
+                                  label: Text('Файлы',
+                                      style: TextStyle(
+                                          fontSize: 25, fontFamily: 'MyFont')))
+                            ], rows: [
+                              DataRow(cells: [DataCell(Text('input.png'))]),
+                              DataRow(cells: [DataCell(Text('input.png'))]),
+                              DataRow(cells: [DataCell(Text('input.png'))]),
+                              DataRow(cells: [DataCell(Text('input.png'))]),
+                            ]),
+                            DataTable(columns: [
+                              DataColumn(
+                                  label: Text('Дата съемки',
+                                      style: TextStyle(
+                                          fontSize: 25, fontFamily: 'MyFont')))
+                            ], rows: [
+                              DataRow(cells: [DataCell(Text('10.05.22'))]),
+                              DataRow(cells: [DataCell(Text('11.05.22'))]),
+                              DataRow(cells: [DataCell(Text('13.05.22'))]),
+                              DataRow(cells: [DataCell(Text('15.05.22'))]),
+                            ]),
+                            DataTable(columns: [
+                              DataColumn(
+                                  label: Text('Результат',
+                                      style: TextStyle(
+                                          fontSize: 25, fontFamily: 'MyFont')))
+                            ], rows: [
+                              DataRow(cells: [DataCell(Text('Найдено 20 особей'))]),
+                              DataRow(cells: [DataCell(Text('Найдено 18 особей'))]),
+                              DataRow(cells: [DataCell(Text('Найдено 25 особей'))]),
+                              DataRow(cells: [DataCell(Text('Найдено 17 особей'))]),
+                            ]),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(75, 10, 75, 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Дата съемки',
+                                      style: TextStyle(
+                                          fontSize: 25, fontFamily: 'MyFont')),
+                                  Text('Тут лист',
+                                      style: TextStyle(fontFamily: 'MyFont'))
+                                ],
+                              ),
                             ),
-                            Text(
-                              'Тут лист',
-                              style: TextStyle(fontFamily: 'MyFont'),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(75, 10, 75, 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Результаты',
+                                      style: TextStyle(
+                                          fontSize: 25, fontFamily: 'MyFont')),
+                                  Text('Тут лист',
+                                      style: TextStyle(fontFamily: 'MyFont'))
+                                ],
+                              ),
                             )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(75, 10, 75, 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Дата съемки',
-                                style: TextStyle(
-                                    fontSize: 25, fontFamily: 'MyFont')),
-                            Text('Тут лист',
-                                style: TextStyle(fontFamily: 'MyFont'))
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(75, 10, 75, 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Результаты',
-                                style: TextStyle(
-                                    fontSize: 25, fontFamily: 'MyFont')),
-                            Text('Тут лист',
-                                style: TextStyle(fontFamily: 'MyFont'))
-                          ],
-                        ),
-                      )
-                    ]),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white54,
-                      border: Border.all(
-                        color: Colors.white54,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text('Название лежбища',
-                                style: TextStyle(
-                                    fontSize: 25, fontFamily: 'MyFont')),
-                            Text('Тут имя')
                           ]),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text('Название файла',
-                                style: TextStyle(
-                                    fontSize: 25, fontFamily: 'MyFont')),
-                            Text('Тут имя')
-                          ]),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white54,
+                          border: Border.all(
+                            color: Colors.white54,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      child: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('Название лежбища',
+                                    style: TextStyle(
+                                        fontSize: 25, fontFamily: 'MyFont')),
+                                Text('Тут имя')
+                              ]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('Название файла',
+                                    style: TextStyle(
+                                        fontSize: 25, fontFamily: 'MyFont')),
+                                Text('Тут имя')
+                              ]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('Дата загрузки',
+                                    style: TextStyle(
+                                        fontSize: 25, fontFamily: 'MyFont')),
+                                Text('Тут чиселки')
+                              ]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('Результаты',
+                                    style: TextStyle(
+                                        fontSize: 25, fontFamily: 'MyFont')),
+                                Text('Тут чиселки')
+                              ]),
+                        )
+                      ]),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text('Дата загрузки',
-                                style: TextStyle(
-                                    fontSize: 25, fontFamily: 'MyFont')),
-                            Text('Тут чиселки')
-                          ]),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text('Результаты',
-                                style: TextStyle(
-                                    fontSize: 25, fontFamily: 'MyFont')),
-                            Text('Тут чиселки')
-                          ]),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.green),
+                      ),
+                      child: Text(
+                        'Скачать данные в формате .xls',
+                        style: TextStyle(),
+                      ),
                     )
-                  ]),
+                  ],
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green),
-                  ),
-                  child: Text(
-                    'Скачать данные в формате .xls',
-                    style: TextStyle(),
-                  ),
-                )
-              ],
+              ),
             ),
           )
         ],
@@ -240,5 +263,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//23:46
+//0:42
 }*/
