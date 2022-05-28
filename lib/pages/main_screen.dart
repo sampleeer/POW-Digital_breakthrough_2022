@@ -130,7 +130,7 @@ class _MainScreenState extends State<MainScreen> {
                                 Text(
                                   "Добро",
                                   style: TextStyle(
-                                      fontSize: 45,
+                                      fontSize: 55,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
                                       fontWeight: FontWeight.bold),
@@ -138,7 +138,7 @@ class _MainScreenState extends State<MainScreen> {
                                 Text(
                                   "пожаловать!",
                                   style: TextStyle(
-                                      fontSize: 45,
+                                      fontSize: 55,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
                                       fontWeight: FontWeight.bold),
@@ -153,7 +153,7 @@ class _MainScreenState extends State<MainScreen> {
                                   Text(
                                     "С помощью этого приложения вы можете",
                                     style: TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 14,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
                                     )
@@ -161,7 +161,7 @@ class _MainScreenState extends State<MainScreen> {
                                   Text(
                                     "загрузить полученные данные для",
                                     style: TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 14,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
                                     ),
@@ -169,7 +169,7 @@ class _MainScreenState extends State<MainScreen> {
                                   Text(
                                     "дальнейшей обработки или продолжить",
                                     style: TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 14,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
                                     ),
@@ -177,7 +177,7 @@ class _MainScreenState extends State<MainScreen> {
                                   Text(
                                     "работу с ранее загруженными файлами",
                                     style: TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 14,
                                       color: Colors.white,
                                       fontFamily: 'MyFont',
                                     ),
@@ -186,7 +186,7 @@ class _MainScreenState extends State<MainScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 20, 80, 20),
+                              padding: const EdgeInsets.fromLTRB(0, 20, 120, 20),
                               child: ElevatedButton(
                                   onPressed: () async {
                                     uploadFiles();
@@ -202,7 +202,7 @@ class _MainScreenState extends State<MainScreen> {
                                       (result?.files.first.name ?? 'Загрузить данные'),
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 15,
+                                        fontSize: 18,
                                         fontWeight: FontWeight.w200,
                                         fontFamily: 'MyFont',
                                       ),
@@ -252,48 +252,65 @@ class _MainScreenState extends State<MainScreen> {
                           children: [
                             Column(
                               children: [
-                                SizedBox(
-                                  height: 60,
-                                  child: TextButton(
-                                      onPressed: () {
-                                        showbd();
-                                      },
-                                      child: Text(
-                                        'Лицензионное соглашение',
-                                        style: TextStyle(
-                                            fontFamily: 'MyFont',
-                                            color: leftPanel),
-                                      )),
-                                ),
-                                SizedBox(
-                                  height: 60,
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(0, 5, 50, 5),
-                                    child: TextButton(
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(30, 5, 0, 10),
+                                  child: SizedBox(
+                                    height: 40,
+                                    width: 400,
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Color(0xff2011C2))),
                                         onPressed: () {},
                                         child: Text(
-                                          'Версия приложения',
+                                          'Политика конфиденциальности',
                                           style: TextStyle(
+                                              fontSize: 20,
                                               fontFamily: 'MyFont',
-                                              color: leftPanel),
+                                              color: Colors.white),
                                         )),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 50),
-                                  child: ElevatedButton(
-                                      style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all(
-                                                  leftPanel)),
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Политика конфиденциальности',
-                                        style: TextStyle(
-                                            fontFamily: 'MyFont',
-                                            color: Colors.white),
-                                      )),
+                                  padding: const EdgeInsets.fromLTRB(30, 5, 0, 10),
+                                  child: SizedBox(
+                                    width: 400,
+                                    height: 40,
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Color(0xff2011C2))),
+                                        onPressed: () {},
+                                        child: Text(
+                                          'Лицензионное соглашение',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontFamily: 'MyFont',
+                                              color: Colors.white),
+                                        )),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(30, 5, 0, 10),
+                                  child: SizedBox(
+                                    width: 400,
+                                    height: 40,
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                    Color(0xff2011C2))),
+                                        onPressed: () {},
+                                        child: Text(
+                                          'Версия приложения',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                              fontFamily: 'MyFont',
+                                              color: Colors.white),
+                                        )),
+                                  ),
                                 )
                               ],
                             ),
