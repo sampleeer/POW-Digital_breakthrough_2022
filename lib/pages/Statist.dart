@@ -93,7 +93,7 @@ class _StatistState extends State<Statist> {
               calendarType: CalendarDatePicker2Type.range,
               selectedDayHighlightColor: Colors.purple[800],
             ),
-            initialValue: [],
+            initialValue: [DateTime.now()],
             onValueChanged: (values) => setState(
                   () => _yourVariable = values,
             ),

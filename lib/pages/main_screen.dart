@@ -1,8 +1,14 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:win/pages/Statist.dart';
+import 'package:win/main.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:math';
+import 'package:sqflite/sqflite.dart';
+
+
+
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -15,6 +21,9 @@ class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
 
   FilePickerResult? result;
+
+
+
 
   PageController pageController = PageController();
   //ignore_for_file: prefer_const_constructors
@@ -304,12 +313,31 @@ class _MainScreenState extends State<MainScreen> {
      //print('File Name: ${result?.files.first.name}');
      int id = (Random()).nextInt(10);
      //int id = 0;
-     String dir = "${(await getApplicationDocumentsDirectory()).path}\\MDetect\\$id";
+     String iddir = "$dir\\$id";
      print(result?.files.map((val) => val.path).toList().join(" \n "));
-     print("locdir : $dir");
+     print("locdir : $iddir");
   }
-  void showbd() {
+  void showbd() async {
+    final db = await database;
+    var rnd = Random();
+    db?.insert("scans", {
+      'id': rnd.nextInt(100),
+      'file_name': "",
+      'place_name': "",
+      'date_uploaded': "",
+      'date_shooted': "",
+      'result': rnd.nextInt(100)
+    });
 
+    /*
+        "'id' INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,"
+        "'file_name' TEXT,"
+        "'place_name' TEXT,"
+        "'date_uploaded' DATE,"
+        "'date_shooted' DATE,"
+        "'result' INTEGER"
+        ");"
+    */
   }
 }
 //its 19:45
