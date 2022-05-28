@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SERGEY\StudioProjects\POW-Digital_breakthrough_2022\build\windows\CMakeFiles\677cc60662459c710d1d14500547f7ef\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\SERGEY\StudioProjects\POW-Digital_breakthrough_2022\build\windows\CMakeFiles\c33dd79c04afd7db56cee418edd74034\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\SERGEY\StudioProjects\POW-Digital_breakthrough_2022\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\SERGEY\StudioProjects\POW-Digital_breakthrough_2022\build\windows\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3F4B8C2B-680D-3BC5-9697-113B48E6F3ED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

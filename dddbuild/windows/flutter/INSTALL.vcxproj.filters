@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\SERGEY\StudioProjects\POW-Digital_breakthrough_2022\build\windows\CMakeFiles\c33dd79c04afd7db56cee418edd74034\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3F4B8C2B-680D-3BC5-9697-113B48E6F3ED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
