@@ -95,7 +95,7 @@ class _StatistState extends State<Statist> {
             child: Container(
                 color: Colors.blue,
                 child: SizedBox(
-                    width: 400,
+                    width: 401,
                     height: 400,
                     child: CalendarDatePicker2WithActionButtons(
                       config: CalendarDatePicker2WithActionButtonsConfig(

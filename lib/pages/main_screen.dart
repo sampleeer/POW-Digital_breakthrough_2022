@@ -276,7 +276,7 @@ class _MainScreenState extends State<MainScreen> {
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(30, 5, 0, 10),
                                   child: SizedBox(
-                                    width: 400,
+                                    width: 401,
                                     height: 40,
                                     child: ElevatedButton(
                                         style: ButtonStyle(
