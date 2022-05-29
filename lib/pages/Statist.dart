@@ -126,7 +126,7 @@ class _StatistState extends State<Statist> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: 445,
+                                width: 750,
                                 height: 100,
                                 child: ListView(children: [
                                   DataTable(columns: [
@@ -175,33 +175,41 @@ class _StatistState extends State<Statist> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: 445,
-                                height: 170,
+                                width: 750,
+                                height: 180,
                                 child: ListView(children: [
                                   DataTable(columns: [
                                     DataColumn(
                                         label: Text(
-                                          'Файлы',
+                                          'Лежбище',
                                           style: TextStyle(fontFamily: 'MyFont'),
                                         )),
                                     DataColumn(
                                         label: Text(
-                                          'Дата создания',
+                                          'Название файла',
                                           style: TextStyle(fontFamily: 'MyFont'),
                                         )),
                                     DataColumn(
                                         label: Text(
-                                          'Результат',
+                                          'Дата загрузки',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                    DataColumn(
+                                        label: Text(
+                                          'Результаты',
                                           style: TextStyle(fontFamily: 'MyFont'),
                                         )),
                                   ], rows: [
-                                    DataRow(cells: [DataCell(Text('in.png')),
+                                    DataRow(cells: [DataCell(Text('Пляж')),
+                                      DataCell(Text('in.png')),
                                       DataCell(Text('10.05.22')),
                                       DataCell(Text('Найдено 25 особей'))]),
-                                    DataRow(cells: [DataCell(Text('in.png')),
+                                    DataRow(cells: [DataCell(Text('Пляж')),
+                                      DataCell(Text('in.png')),
                                       DataCell(Text('10.05.22')),
                                       DataCell(Text('Найдено 25 особей'))]),
-                                    DataRow(cells: [DataCell(Text('in.png')),
+                                    DataRow(cells: [DataCell(Text('Пляж')),
+                                      DataCell(Text('in.png')),
                                       DataCell(Text('10.05.22')),
                                       DataCell(Text('Найдено 25 особей'))]),
                                   ]),
@@ -242,5 +250,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//3:43
+//3:55
 }*/
