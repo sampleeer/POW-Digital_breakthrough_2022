@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:win/main.dart';
+import 'package:intl/intl.dart';
 
 class Statist extends StatefulWidget {
   const Statist({Key? key}) : super(key: key);
-
   @override
   State<Statist> createState() => _StatistState();
 }
 
 class _StatistState extends State<Statist> {
-  void _showDate() {
+  /*void _showDate() {
     showDatePicker(
         context: context,
         initialDate: DateTime.now(),
@@ -22,6 +23,9 @@ class _StatistState extends State<Statist> {
         _yourVariable.add(dateTime);
       });
     });
+  }*/
+  _StatistState() {
+    getShotsFrom(DateTime.now(), DateTime.now()).then((value) => updateDfiles(value));
   }
 
   //ignore_for_file: prefer_const_constructors
@@ -30,7 +34,8 @@ class _StatistState extends State<Statist> {
   int count = 0;
 
   List<DateTime?> _yourVariable = [DateTime.now()];
-  DateTime dateTime = DateTime.now();
+  DateTime dateTime = DateTime.now(), fir = DateTime.now(), sec = DateTime.now();
+  List<Map<String, Object?>> dfiles = <Map<String, Object?>>[];
 
   @override
   Widget build(BuildContext context) {
@@ -97,10 +102,10 @@ class _StatistState extends State<Statist> {
                         calendarType: CalendarDatePicker2Type.range,
                         selectedDayHighlightColor: Colors.indigo[900],
                       ),
-                      initialValue: [DateTime.now()],
+                      initialValue: [fir, sec],
                       onValueChanged: (values) =>
                           setState(
-                                () => _yourVariable = values,
+                                () => updateDates(values),
                           ),
                     ))),
           ),
@@ -145,17 +150,7 @@ class _StatistState extends State<Statist> {
                                           'Результат',
                                           style: TextStyle(fontFamily: 'MyFont'),
                                         )),
-                                  ], rows: [
-                                    DataRow(cells: [DataCell(Text('in.png')),
-                                      DataCell(Text('10.05.22')),
-                                      DataCell(Text('Найдено 25 особей'))]),
-                                    DataRow(cells: [DataCell(Text('in.png')),
-                                      DataCell(Text('10.05.22')),
-                                      DataCell(Text('Найдено 25 особей'))]),
-                                    DataRow(cells: [DataCell(Text('in.png')),
-                                      DataCell(Text('10.05.22')),
-                                      DataCell(Text('Найдено 25 особей'))]),
-                                  ]),
+                                  ], rows: getFirstRows()),
                                 ]),
                               ),
                             ],
@@ -194,17 +189,7 @@ class _StatistState extends State<Statist> {
                                           'Результат',
                                           style: TextStyle(fontFamily: 'MyFont'),
                                         )),
-                                  ], rows: [
-                                    DataRow(cells: [DataCell(Text('in.png')),
-                                      DataCell(Text('10.05.22')),
-                                      DataCell(Text('Найдено 25 особей'))]),
-                                    DataRow(cells: [DataCell(Text('in.png')),
-                                      DataCell(Text('10.05.22')),
-                                      DataCell(Text('Найдено 25 особей'))]),
-                                    DataRow(cells: [DataCell(Text('in.png')),
-                                      DataCell(Text('10.05.22')),
-                                      DataCell(Text('Найдено 25 особей'))]),
-                                  ]),
+                                  ], rows: getFirstRows()),
                                 ]),
                               ),
                             ],
@@ -214,7 +199,9 @@ class _StatistState extends State<Statist> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            exportSingleTable();
+                          },
                           style: ButtonStyle(
                             backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.green),
@@ -235,6 +222,38 @@ class _StatistState extends State<Statist> {
       ),
     );
   }
+  void updateDates(List<DateTime?> values) {
+    if(values.isEmpty){
+      return;
+    }
+    _yourVariable = values;
+    if(values.length == 1){
+      values.add(values[0]);
+    }
+    fir = values[0]!;
+    sec = values[1]!;
+    getShotsFrom(values[0]!, values[1]!).then((value) => updateDfiles(value));
+  }
+  void updateDfiles(List<Map<String, Object?>> value) {
+    dfiles = value;
+    print("Dfiles: ${dfiles.length}");
+    for(Map<String, Object?> st in dfiles) {
+      print(st.values.join(" "));
+    }
+  }
+  List<DataRow> getFirstRows() {
+    List<DataRow> ls = <DataRow>[];
+    for(Map<String, Object?> st in dfiles) {
+      ls.add(DataRow(cells: [
+        DataCell(Text(st['file_name'].toString())),
+        DataCell(Text(DateFormat('d.MM.yyyy').format(DateTime.parse(st['date_shooted'].toString())))),
+        DataCell(Text("Найдено ${st['result']} особей"))
+      ]));
+    }
+    return ls;
+  }/*cells: [DataCell(Text('in.png')),
+  DataCell(Text('10.05.22')),
+  DataCell(Text('Найдено 25 особей'))]),*/
 }
 /*
 class _yourVariable {
@@ -242,5 +261,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//3:43
+//1:44
 }*/

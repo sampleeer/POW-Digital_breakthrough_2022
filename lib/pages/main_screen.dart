@@ -5,6 +5,7 @@ import 'package:win/pages/Statist.dart';
 import 'package:win/main.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:math';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:sqflite/sqflite.dart';
 
 
@@ -199,7 +200,7 @@ class _MainScreenState extends State<MainScreen> {
                                     padding: const EdgeInsets.all(15.0),
                                     child: Text(
                                       //((result?.files.first  != null) ? ((result?.files.first.name != null) ? result?.files.first.name : 'Загрузить данные') : 'Загрузить данные') ?? '',
-                                      (result?.files.first.name ?? 'Загрузить данные'),
+                                      'Загрузить данные',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
@@ -331,20 +332,45 @@ class _MainScreenState extends State<MainScreen> {
      int id = (Random()).nextInt(10);
      //int id = 0;
      String iddir = "$dir\\$id";
-     print(result?.files.map((val) => val.path).toList().join(" \n "));
+
+     Directory picdir = Directory(picpath);
+
+     if(!(await picdir.exists())){ //if folder already exists return path
+       await picdir.create(recursive: true);
+     }
+
+     for (PlatformFile file in result!.files) {
+       int value = getMorzh(file.path!);
+       loadPhoto(file, value);
+       //getMorzh(file.path!).then((value) => loadPhoto(file, value));
+     }
+     //print(result?.files.map((val) => val.path).toList().join(" \n "));
      print("locdir : $iddir");
+  }
+  void loadPhoto(PlatformFile file, int val) async {
+    final db = await database;
+    int? ider = await db?.insert("scans", {
+      'file_name': file.name,
+      'place_name': "Лежбище 1",
+      'date_uploaded': DateTime.now().toString(),
+      'date_shooted': DateTime.now().toString(),
+      'result': val
+    });
+    File(file.path!).copy("$picpath\\${file.name}.${file.extension}");
+    print("pathh = ${file.path!}  id = $ider");
   }
   void showbd() async {
     final db = await database;
     var rnd = Random();
     db?.insert("scans", {
-      'id': rnd.nextInt(100),
       'file_name': "",
       'place_name': "",
-      'date_uploaded': "",
-      'date_shooted': "",
+      'date_uploaded': DateTime.now().toString(),
+      'date_shooted': DateTime.now().toString(),
       'result': rnd.nextInt(100)
     });
+
+    //TimeStamp DateTime.now()
 
     /*
         "'id' INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,"
