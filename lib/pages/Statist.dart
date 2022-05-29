@@ -12,10 +12,10 @@ class Statist extends StatefulWidget {
 class _StatistState extends State<Statist> {
   void _showDate() {
     showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2000),
-            lastDate: DateTime(2030))
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2030))
         .then((value) {
       setState(() {
         dateTime = value!;
@@ -98,73 +98,88 @@ class _StatistState extends State<Statist> {
                         selectedDayHighlightColor: Colors.indigo[900],
                       ),
                       initialValue: [DateTime.now()],
-                      onValueChanged: (values) => setState(
-                        () => _yourVariable = values,
-                      ),
+                      onValueChanged: (values) =>
+                          setState(
+                                () => _yourVariable = values,
+                          ),
                     ))),
           ),
           Expanded(
-            child: SizedBox(
-              height: 400,
-              child: Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SingleChildScrollView(child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white54,
-                            border: Border.all(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 70),
+              child: SizedBox(
+                height: 400,
+                child: Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SingleChildScrollView(child: Container(
+                          decoration: BoxDecoration(
                               color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))),
-                        child: Column(children: [
-                          DataTable(columns: [
-                            DataColumn(
-                                label: Text(
-                                  'Файлы',
-                                  style: TextStyle(fontFamily: 'MyFont'),
-                                )),
-                            DataColumn(
-                                label: Text(
-                                  'Дата создания',
-                                  style: TextStyle(fontFamily: 'MyFont'),
-                                )),
-                            DataColumn(
-                                label: Text(
-                                  'Результат',
-                                  style: TextStyle(fontFamily: 'MyFont'),
-                                )),
-                          ], rows: [
-                            DataRow(cells: [DataCell(Text('in.png')),
-                              DataCell(Text('10.05.22')),
-                              DataCell(Text('Найдено 25 особей'))]),
-                            DataRow(cells: [DataCell(Text('in.png')),
-                              DataCell(Text('10.05.22')),
-                              DataCell(Text('Найдено 25 особей'))]),
-                            DataRow(cells: [DataCell(Text('in.png')),
-                              DataCell(Text('10.05.22')),
-                              DataCell(Text('Найдено 25 особей'))]),
-                          ]),
-                        ]),),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green),
+                              border: Border.all(
+                                color: Colors.white54,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10))),
+                          child: Row(
+                            children: [
+                              Column(children: [
+                                IconButton(
+                                    onPressed: () {}, icon: Icon(Icons.add)),
+                                IconButton(
+                                    onPressed: () {}, icon: Icon(Icons.minimize)),
+                              ],),
+                              Column(children: [
+                                DataTable(columns: [
+                                  DataColumn(
+                                      label: Text(
+                                        'Файлы',
+                                        style: TextStyle(fontFamily: 'MyFont'),
+                                      )),
+                                  DataColumn(
+                                      label: Text(
+                                        'Дата создания',
+                                        style: TextStyle(fontFamily: 'MyFont'),
+                                      )),
+                                  DataColumn(
+                                      label: Text(
+                                        'Результат',
+                                        style: TextStyle(fontFamily: 'MyFont'),
+                                      )),
+                                ], rows: [
+                                  DataRow(cells: [DataCell(Text('in.png')),
+                                    DataCell(Text('10.05.22')),
+                                    DataCell(Text('Найдено 25 особей'))]),
+                                  DataRow(cells: [DataCell(Text('in.png')),
+                                    DataCell(Text('10.05.22')),
+                                    DataCell(Text('Найдено 25 особей'))]),
+                                  DataRow(cells: [DataCell(Text('in.png')),
+                                    DataCell(Text('10.05.22')),
+                                    DataCell(Text('Найдено 25 особей'))]),
+                                ]),
+                              ]),
+                            ],
+                          ),),
                         ),
-                        child: Text(
-                          'Скачать данные в формате .xls',
-                          style: TextStyle(),
-                        ),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.green),
+                          ),
+                          child: Text(
+                            'Скачать данные в формате .xls',
+                            style: TextStyle(),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -180,5 +195,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//3:01
+//3:22
 }*/
