@@ -109,7 +109,7 @@ void main() {
   // Change the default factory. On iOS/Android, if not using `sqlite_flutter_lib` you can forget
   // this step, it will use the sqlite version available on the system.
   databaseFactory = databaseFactoryFfi;
-
+//f
   initDB();
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: Colors.blueAccent),
