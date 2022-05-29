@@ -85,122 +85,87 @@ class _StatistState extends State<Statist> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-              color: Colors.blue,
-              child: SizedBox(
-                  width: 400,
-                  height: 400,
-                  child: CalendarDatePicker2WithActionButtons(
-                    config: CalendarDatePicker2WithActionButtonsConfig(
-                      calendarType: CalendarDatePicker2Type.range,
-                      selectedDayHighlightColor: Colors.indigo[900],
-                    ),
-                    initialValue: [DateTime.now()],
-                    onValueChanged: (values) => setState(
-                      () => _yourVariable = values,
-                    ),
-                  ))),
+          Padding(
+            padding: const EdgeInsets.all(100.0),
+            child: Container(
+                color: Colors.blue,
+                child: SizedBox(
+                    width: 400,
+                    height: 400,
+                    child: CalendarDatePicker2WithActionButtons(
+                      config: CalendarDatePicker2WithActionButtonsConfig(
+                        calendarType: CalendarDatePicker2Type.range,
+                        selectedDayHighlightColor: Colors.indigo[900],
+                      ),
+                      initialValue: [DateTime.now()],
+                      onValueChanged: (values) => setState(
+                        () => _yourVariable = values,
+                      ),
+                    ))),
+          ),
           Expanded(
             child: SizedBox(
-              height: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white54,
-                          border: Border.all(
+              height: 400,
+              child: Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SingleChildScrollView(child: Container(
+                        decoration: BoxDecoration(
                             color: Colors.white54,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Column(children: [
-                        DataTable(columns: [
-                          DataColumn(
-                              label: Text(
-                            'Файлы',
-                            style: TextStyle(fontFamily: 'MyFont'),
-                          )),
-                          DataColumn(
-                              label: Text(
-                            'Дата создания',
-                            style: TextStyle(fontFamily: 'MyFont'),
-                          )),
-                          DataColumn(
-                              label: Text(
-                            'Результат',
-                            style: TextStyle(fontFamily: 'MyFont'),
-                          )),
-                        ], rows: [
-                          DataRow(cells: [DataCell(Text('in.png')),
-                            DataCell(Text('10.05.22')),
-                            DataCell(Text('Найдено 25 особей'))]),
-                          DataRow(cells: [DataCell(Text('in.png')),
-                            DataCell(Text('10.05.22')),
-                            DataCell(Text('Найдено 25 особей'))]),
-                          DataRow(cells: [DataCell(Text('in.png')),
-                            DataCell(Text('10.05.22')),
-                            DataCell(Text('Найдено 25 особей'))]),
-                        ])
-                      ]),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white54,
-                          border: Border.all(
-                            color: Colors.white54,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Column(children: [
-                        DataTable(columns: [
-                          DataColumn(
-                              label: Text(
-                                'Файлы',
-                                style: TextStyle(fontFamily: 'MyFont'),
-                              )),
-                          DataColumn(
-                              label: Text(
-                                'Дата создания',
-                                style: TextStyle(fontFamily: 'MyFont'),
-                              )),
-                          DataColumn(
-                              label: Text(
-                                'Результат',
-                                style: TextStyle(fontFamily: 'MyFont'),
-                              )),
-                        ], rows: [
-                          DataRow(cells: [DataCell(Text('in.png')),
-                            DataCell(Text('10.05.22')),
-                            DataCell(Text('Найдено 25 особей'))]),
-                          DataRow(cells: [DataCell(Text('in.png')),
-                            DataCell(Text('10.05.22')),
-                            DataCell(Text('Найдено 25 особей'))]),
-                          DataRow(cells: [DataCell(Text('in.png')),
-                            DataCell(Text('10.05.22')),
-                            DataCell(Text('Найдено 25 особей'))]),
-                        ])
-                      ]),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.green),
-                      ),
-                      child: Text(
-                        'Скачать данные в формате .xls',
-                        style: TextStyle(),
+                            border: Border.all(
+                              color: Colors.white54,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                        child: Column(children: [
+                          DataTable(columns: [
+                            DataColumn(
+                                label: Text(
+                                  'Файлы',
+                                  style: TextStyle(fontFamily: 'MyFont'),
+                                )),
+                            DataColumn(
+                                label: Text(
+                                  'Дата создания',
+                                  style: TextStyle(fontFamily: 'MyFont'),
+                                )),
+                            DataColumn(
+                                label: Text(
+                                  'Результат',
+                                  style: TextStyle(fontFamily: 'MyFont'),
+                                )),
+                          ], rows: [
+                            DataRow(cells: [DataCell(Text('in.png')),
+                              DataCell(Text('10.05.22')),
+                              DataCell(Text('Найдено 25 особей'))]),
+                            DataRow(cells: [DataCell(Text('in.png')),
+                              DataCell(Text('10.05.22')),
+                              DataCell(Text('Найдено 25 особей'))]),
+                            DataRow(cells: [DataCell(Text('in.png')),
+                              DataCell(Text('10.05.22')),
+                              DataCell(Text('Найдено 25 особей'))]),
+                          ]),
+                        ]),),
                       ),
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.green),
+                        ),
+                        child: Text(
+                          'Скачать данные в формате .xls',
+                          style: TextStyle(),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           )
@@ -215,5 +180,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//1:44
+//3:01
 }*/
