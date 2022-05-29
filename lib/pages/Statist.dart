@@ -250,6 +250,7 @@ class _StatistState extends State<Statist> {
         DataCell(Text("Найдено ${st['result']} особей"))
       ]));
     }
+
     return ls;
   }/*cells: [DataCell(Text('in.png')),
   DataCell(Text('10.05.22')),

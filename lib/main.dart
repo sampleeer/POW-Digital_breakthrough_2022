@@ -92,7 +92,7 @@ void exportTable(List<Map<String, Object?>> input, String? path) {
     var ls = input[i-1].values.toList();
     excel["Sheet1"].insertRowIterables(ls, i);
     //sum += int.parse(ls[ls.length-1].toString());
-  }
+  } //
   excel.encode().then((onValue) {
     File("$path\\MDetect_bd.xlsx")
       ..createSync(recursive: true)
