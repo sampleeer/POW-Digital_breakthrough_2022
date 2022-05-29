@@ -6,7 +6,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 
 ![image](https://user-images.githubusercontent.com/82716366/135564164-3ec169c8-93a7-4ea3-b0dc-40f1059601ef.png)
 
-## Comparison of ablation experiment results
+## Comparison of аblation experiment results
 
   ID|Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95
  :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
