@@ -125,41 +125,88 @@ class _StatistState extends State<Statist> {
                                   Radius.circular(10))),
                           child: Row(
                             children: [
-                              Column(children: [
-                                IconButton(
-                                    onPressed: () {}, icon: Icon(Icons.add)),
-                                IconButton(
-                                    onPressed: () {}, icon: Icon(Icons.minimize)),
-                              ],),
-                              Column(children: [
-                                DataTable(columns: [
-                                  DataColumn(
-                                      label: Text(
-                                        'Файлы',
-                                        style: TextStyle(fontFamily: 'MyFont'),
-                                      )),
-                                  DataColumn(
-                                      label: Text(
-                                        'Дата создания',
-                                        style: TextStyle(fontFamily: 'MyFont'),
-                                      )),
-                                  DataColumn(
-                                      label: Text(
-                                        'Результат',
-                                        style: TextStyle(fontFamily: 'MyFont'),
-                                      )),
-                                ], rows: [
-                                  DataRow(cells: [DataCell(Text('in.png')),
-                                    DataCell(Text('10.05.22')),
-                                    DataCell(Text('Найдено 25 особей'))]),
-                                  DataRow(cells: [DataCell(Text('in.png')),
-                                    DataCell(Text('10.05.22')),
-                                    DataCell(Text('Найдено 25 особей'))]),
-                                  DataRow(cells: [DataCell(Text('in.png')),
-                                    DataCell(Text('10.05.22')),
-                                    DataCell(Text('Найдено 25 особей'))]),
+                              SizedBox(
+                                width: 445,
+                                height: 100,
+                                child: ListView(children: [
+                                  DataTable(columns: [
+                                    DataColumn(
+                                        label: Text(
+                                          'Файлы',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                    DataColumn(
+                                        label: Text(
+                                          'Дата создания',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                    DataColumn(
+                                        label: Text(
+                                          'Результат',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                  ], rows: [
+                                    DataRow(cells: [DataCell(Text('in.png')),
+                                      DataCell(Text('10.05.22')),
+                                      DataCell(Text('Найдено 25 особей'))]),
+                                    DataRow(cells: [DataCell(Text('in.png')),
+                                      DataCell(Text('10.05.22')),
+                                      DataCell(Text('Найдено 25 особей'))]),
+                                    DataRow(cells: [DataCell(Text('in.png')),
+                                      DataCell(Text('10.05.22')),
+                                      DataCell(Text('Найдено 25 особей'))]),
+                                  ]),
                                 ]),
-                              ]),
+                              ),
+                            ],
+                          ),),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SingleChildScrollView(child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white54,
+                              border: Border.all(
+                                color: Colors.white54,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(10))),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 445,
+                                height: 170,
+                                child: ListView(children: [
+                                  DataTable(columns: [
+                                    DataColumn(
+                                        label: Text(
+                                          'Файлы',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                    DataColumn(
+                                        label: Text(
+                                          'Дата создания',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                    DataColumn(
+                                        label: Text(
+                                          'Результат',
+                                          style: TextStyle(fontFamily: 'MyFont'),
+                                        )),
+                                  ], rows: [
+                                    DataRow(cells: [DataCell(Text('in.png')),
+                                      DataCell(Text('10.05.22')),
+                                      DataCell(Text('Найдено 25 особей'))]),
+                                    DataRow(cells: [DataCell(Text('in.png')),
+                                      DataCell(Text('10.05.22')),
+                                      DataCell(Text('Найдено 25 особей'))]),
+                                    DataRow(cells: [DataCell(Text('in.png')),
+                                      DataCell(Text('10.05.22')),
+                                      DataCell(Text('Найдено 25 особей'))]),
+                                  ]),
+                                ]),
+                              ),
                             ],
                           ),),
                         ),
@@ -195,5 +242,5 @@ class _yourVariable {
   int firstData = 0;
   int secondData = 0;
 }
-//3:22
+//3:43
 }*/
